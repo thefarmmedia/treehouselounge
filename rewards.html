@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treehouse Rewards — Earn Leaves Every Visit | The Treehouse Lounge</title>
+<meta name="description" content="Earn Leaves every time you visit The Treehouse Lounge. Redeem for free day passes, event entry, and exclusive merch. See how the rewards program works.">
+<link rel="canonical" href="https://treehousemo.com/rewards.html">
+<meta property="og:title" content="Treehouse Rewards — Earn Leaves Every Visit | The Treehouse Lounge">
+<meta property="og:description" content="Earn Leaves every time you visit The Treehouse Lounge. Redeem for free day passes, event entry, and exclusive merch. See how the rewards program works.">
+<meta property="og:image" content="https://treehousemo.com/logo-full.png">
+<meta property="og:url" content="https://treehousemo.com/rewards.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .leaf-meter{position:relative; height:14px; background:var(--surface-3); border-radius:99px; overflow:hidden; border:1px solid var(--line-strong);}
+  .leaf-meter-fill{height:100%; background:linear-gradient(90deg,var(--leaf),var(--amber)); border-radius:99px; transition:width .6s ease;}
+  .tier-marker{position:absolute; top:-8px; width:2px; height:30px; background:var(--line-strong);}
+  .tier-marker span{position:absolute; top:34px; left:50%; transform:translateX(-50%); font-family:var(--f-mono); font-size:.66rem; color:var(--sage-dim); white-space:nowrap;}
+  .way-row{display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid var(--line);}
+</style>
+</head>
+<body class="canopy-bg">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"><img src="logo-icon.png" alt="The Treehouse Lounge"></span> Treehouse Lounge</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="first-visit.html">First Visit</a></li>
+      <li><a href="rewards.html" class="active">Rewards</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="learning.html">Learning Center</a></li>
+      <li><a href="concierge.html">AI Concierge</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="first-visit.html" class="btn btn-ghost btn-sm">Plan my visit</a>
+      <a href="index.html#memberships" class="btn btn-primary btn-sm">Get a Pass</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="section-tight">
+  <div class="wrap grid grid-2" style="align-items:center; gap:48px;">
+    <div data-reveal>
+      <span class="eyebrow">🌿 Treehouse Rewards</span>
+      <h1 class="display-1 mt-16">Every visit earns Leaves.</h1>
+      <p class="lede mt-24">No app to download, nothing extra to carry — Leaves stack automatically on your membership every time you check in. Spend them on free passes, event entry, and merch you won't find anywhere else.</p>
+      <a href="first-visit.html" class="btn btn-primary mt-32">Start earning on your first visit</a>
+    </div>
+    <div class="card" data-reveal style="padding:36px;">
+      <span class="eyebrow">Your Leaves (demo)</span>
+      <div class="flex items-center gap-12 mt-16">
+        <span class="display-1" style="font-size:3rem;" id="leafCount">0</span>
+        <span class="mono muted">leaves</span>
+      </div>
+      <div class="leaf-meter mt-24" style="position:relative;">
+        <div class="leaf-meter-fill" id="leafFill" style="width:0%;"></div>
+        <div class="tier-marker" style="left:10%;"><span>50</span></div>
+        <div class="tier-marker" style="left:40%;"><span>200</span></div>
+        <div class="tier-marker" style="left:100%;"><span>500</span></div>
+      </div>
+      <button class="btn btn-ghost btn-block mt-32" id="simBtn">Simulate a visit (+10 leaves)</button>
+      <p class="muted mt-16" style="font-size:.76rem;">This counter is a live demo for the page — real balances will sync from check-ins at the door.</p>
+    </div>
+  </div>
+</header>
+
+<div class="string-lights" aria-hidden="true"></div>
+
+<!-- ============ HOW TO EARN ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Ways to earn</span>
+      <h2 class="display-2 mt-16">Stack Leaves without trying.</h2>
+    </div>
+    <div class="card" data-reveal>
+      <div class="way-row"><span style="color:var(--sage);">Check in for a Day Pass</span><span class="pill pill-leaf">+10 leaves</span></div>
+      <div class="way-row"><span style="color:var(--sage);">Attend a ticketed event</span><span class="pill pill-leaf">+25 leaves</span></div>
+      <div class="way-row"><span style="color:var(--sage);">Renew a Month or Year Pass</span><span class="pill pill-leaf">+40 leaves</span></div>
+      <div class="way-row"><span style="color:var(--sage);">Refer a friend who joins</span><span class="pill pill-leaf">+50 leaves</span></div>
+      <div class="way-row" style="border-bottom:none;"><span style="color:var(--sage);">Post on the Community Wall</span><span class="pill pill-leaf">+5 leaves</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="string-lights" aria-hidden="true"></div>
+
+<!-- ============ REDEMPTION TIERS ============ -->
+<section class="canopy-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Spend your leaves</span>
+      <h2 class="display-2 mt-16">What they're worth.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card" data-reveal>
+        <span class="display-1" style="font-size:2.2rem;">🌿 50</span>
+        <h3 class="display-3 mt-16" style="font-size:1.2rem;">Free Day Pass</h3>
+        <p class="muted mt-8" style="font-size:.88rem;">Bring a friend who's never been, on the house.</p>
+      </div>
+      <div class="card" data-reveal style="border-color:rgba(240,169,78,.3);">
+        <span class="display-1" style="font-size:2.2rem;">🌿 200</span>
+        <h3 class="display-3 mt-16" style="font-size:1.2rem;">Free event entry</h3>
+        <p class="muted mt-8" style="font-size:.88rem;">Any ticketed workshop, class, or live show — your choice.</p>
+      </div>
+      <div class="card" data-reveal>
+        <span class="display-1" style="font-size:2.2rem;">🌿 500</span>
+        <h3 class="display-3 mt-16" style="font-size:1.2rem;">Exclusive merch</h3>
+        <p class="muted mt-8" style="font-size:.88rem;">Treehouse gear you can't buy — only earned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span data-year></span> The Treehouse Lounge. 21+ only. ID and waiver required at check-in.</span>
+      <a href="index.html">← Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+(function(){
+  let leaves = 0;
+  const max = 500;
+  const countEl = document.getElementById('leafCount');
+  const fillEl = document.getElementById('leafFill');
+  function render(){
+    countEl.textContent = leaves;
+    fillEl.style.width = Math.min(100, (leaves/max)*100) + '%';
+  }
+  document.getElementById('simBtn').addEventListener('click', () => {
+    leaves = Math.min(max, leaves + 10);
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

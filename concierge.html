@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Concierge — Ask Anything About The Treehouse Lounge</title>
+<meta name="description" content="Ask the Treehouse Lounge AI Concierge about Missouri cannabis law, house rules, memberships, and tonight's events — answered instantly.">
+<link rel="canonical" href="https://treehousemo.com/concierge.html">
+<meta property="og:title" content="AI Concierge — Ask Anything About The Treehouse Lounge">
+<meta property="og:description" content="Ask the Treehouse Lounge AI Concierge about Missouri cannabis law, house rules, memberships, and tonight's events — answered instantly.">
+<meta property="og:image" content="https://treehousemo.com/logo-full.png">
+<meta property="og:url" content="https://treehousemo.com/concierge.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .chat-shell{
+    max-width:760px; margin:0 auto; background:var(--surface-2); border:1px solid var(--line-strong);
+    border-radius:20px; overflow:hidden; display:flex; flex-direction:column; height:min(640px,70vh);
+  }
+  .chat-head{padding:18px 22px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:12px; background:var(--surface-3);}
+  .chat-avatar{width:38px; height:38px; border-radius:50%; background:linear-gradient(160deg,var(--amber-soft),var(--amber)); display:flex; align-items:center; justify-content:center; font-size:1.1rem;}
+  .chat-log{flex:1; overflow-y:auto; padding:22px; display:flex; flex-direction:column; gap:16px;}
+  .msg{max-width:78%; padding:13px 16px; border-radius:14px; font-size:.92rem; line-height:1.55;}
+  .msg.bot{background:var(--surface-3); border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:4px;}
+  .msg.user{background:linear-gradient(180deg,var(--amber-soft),var(--amber)); color:#23150a; align-self:flex-end; border-bottom-right-radius:4px; font-weight:500;}
+  .chat-suggest{display:flex; flex-wrap:wrap; gap:8px; padding:0 22px 16px;}
+  .chat-suggest button{padding:8px 14px; border-radius:999px; background:var(--surface-3); border:1px solid var(--line-strong); color:var(--sage); font-size:.8rem;}
+  .chat-suggest button:hover{border-color:var(--amber); color:var(--amber-soft);}
+  .chat-input{display:flex; gap:10px; padding:16px 18px; border-top:1px solid var(--line); background:var(--surface-3);}
+  .chat-input input{flex:1; background:var(--surface); border:1px solid var(--line-strong); border-radius:999px; padding:13px 18px; color:var(--pale); font-family:var(--f-body); font-size:.92rem;}
+  .chat-input input:focus{outline:none; border-color:var(--amber);}
+  .chat-input button{width:46px; height:46px; border-radius:50%; background:var(--amber); color:#23150a; border:none; flex-shrink:0; font-size:1.1rem;}
+  .typing-dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--sage-dim); margin-right:3px; animation:bounce 1.2s infinite;}
+  .typing-dot:nth-child(2){animation-delay:.2s;} .typing-dot:nth-child(3){animation-delay:.4s;}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0); opacity:.5;} 30%{transform:translateY(-4px); opacity:1;}}
+</style>
+</head>
+<body class="canopy-bg">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"><img src="logo-icon.png" alt="The Treehouse Lounge"></span> Treehouse Lounge</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="first-visit.html">First Visit</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="learning.html">Learning Center</a></li>
+      <li><a href="concierge.html" class="active">AI Concierge</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="first-visit.html" class="btn btn-ghost btn-sm">Plan my visit</a>
+      <a href="index.html#memberships" class="btn btn-primary btn-sm">Get a Pass</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="section-tight">
+  <div class="wrap center-col">
+    <span class="eyebrow" style="justify-content:center;"><span class="pulse-dot"></span> Answers, day or night</span>
+    <h1 class="display-2 mt-16" style="max-width:18ch;">Ask the Treehouse AI Concierge.</h1>
+    <p class="lede mt-16" style="max-width:54ch;">Trained on Missouri cannabis law, house rules, current memberships, and what's on the calendar. No account needed.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="chat-shell" data-reveal>
+      <div class="chat-head">
+        <div class="chat-avatar">🌳</div>
+        <div>
+          <div style="font-weight:700; font-size:.95rem;">Treehouse Concierge</div>
+          <div class="muted" style="font-size:.76rem; display:flex; align-items:center; gap:6px;"><span class="pulse-dot" style="width:6px;height:6px;"></span> Online now</div>
+        </div>
+      </div>
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">Hey — I'm the Treehouse Concierge. Ask me about Missouri cannabis law, what to bring, our memberships, or what's happening tonight. I'll give you a straight answer.</div>
+      </div>
+      <div class="chat-suggest">
+        <button type="button" data-q="Can I bring a guest?">Can I bring a guest?</button>
+        <button type="button" data-q="What should I bring for my first visit?">What to bring first visit?</button>
+        <button type="button" data-q="What events are coming up this week?">Events this week?</button>
+        <button type="button" data-q="Is it legal to consume cannabis at a private lounge in Missouri?">Is this legal in Missouri?</button>
+      </div>
+      <form class="chat-input" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ask anything about the lounge…" autocomplete="off">
+        <button type="submit" aria-label="Send">➤</button>
+      </form>
+    </div>
+
+    <div class="grid grid-3 mt-48" data-reveal>
+      <div class="card">
+        <span class="pill pill-leaf">House rules</span>
+        <p class="muted mt-16" style="font-size:.88rem;">21+, ID and signed waiver required at every check-in. BYOC — we never sell product on site.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill-amber">Missouri law</span>
+        <p class="muted mt-16" style="font-size:.88rem;">The lounge operates as a private club, which is how on-site consumption is handled under local rules — ask the concierge for specifics.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Live calendar</span>
+        <p class="muted mt-16" style="font-size:.88rem;">The concierge always knows what's scheduled this week, so you don't have to dig through the events page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span data-year></span> The Treehouse Lounge. 21+ only. ID and waiver required at check-in.</span>
+      <a href="index.html">← Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+/* ============================================================
+   AI Concierge front-end logic.
+   Calls a Netlify Function (functions/concierge.js, included
+   alongside this site) which holds the real Anthropic API key
+   as an environment variable and proxies the request server-side.
+   The browser never sees the key.
+   ============================================================ */
+const log = document.getElementById('chatLog');
+const form = document.getElementById('chatForm');
+const input = document.getElementById('chatInput');
+
+function addMsg(text, who){
+  const div = document.createElement('div');
+  div.className = 'msg ' + who;
+  div.textContent = text;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+  return div;
+}
+
+function addTyping(){
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+  return div;
+}
+
+async function ask(question){
+  addMsg(question, 'user');
+  const typing = addTyping();
+  try{
+    const res = await fetch('/.netlify/functions/concierge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question, context: TREEHOUSE_DATA })
+    });
+    const data = await res.json();
+    typing.remove();
+    addMsg(data.answer || "Sorry — I didn't catch that. Could you ask another way?", 'bot');
+  }catch(err){
+    typing.remove();
+    addMsg("I'm having trouble connecting right now. Text or call the lounge directly and we'll get you sorted.", 'bot');
+  }
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const q = input.value.trim();
+  if(!q) return;
+  input.value = '';
+  ask(q);
+});
+
+document.querySelectorAll('.chat-suggest button').forEach(btn => {
+  btn.addEventListener('click', () => ask(btn.dataset.q));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your First Visit — What To Expect | The Treehouse Lounge</title>
+<meta name="description" content="Nervous about your first visit to a cannabis lounge? Here's exactly what to expect at The Treehouse Lounge in Nixa, MO — step by step, from check-in to your first conversation.">
+<link rel="canonical" href="https://treehousemo.com/first-visit.html">
+<meta property="og:title" content="Your First Visit — What To Expect | The Treehouse Lounge">
+<meta property="og:description" content="Nervous about your first visit to a cannabis lounge? Here's exactly what to expect at The Treehouse Lounge in Nixa, MO — step by step, from check-in to your first conversation.">
+<meta property="og:image" content="https://treehousemo.com/logo-full.png">
+<meta property="og:url" content="https://treehousemo.com/first-visit.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .wizard{max-width:880px; margin:0 auto;}
+  .steps-rail{display:flex; gap:8px; margin-bottom:40px;}
+  .steps-rail button{
+    flex:1; height:6px; border-radius:99px; background:var(--surface-3); border:none; cursor:pointer; padding:0;
+    transition:background .25s;
+  }
+  .steps-rail button.active, .steps-rail button.done{background:var(--amber);}
+  .step-panel{display:none;}
+  .step-panel.active{display:block;}
+  .step-card{
+    background:var(--surface-2); border:1px solid var(--line-strong); border-radius:20px; padding:44px;
+    display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;
+  }
+  .step-num{
+    font-family:var(--f-display); font-size:3rem; font-weight:800; color:transparent;
+    -webkit-text-stroke:1.5px var(--amber); width:70px;
+  }
+  .step-nav{display:flex; justify-content:space-between; margin-top:32px;}
+  .checklist-item{display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--line);}
+  .checklist-item input{margin-top:4px; width:18px; height:18px; accent-color:var(--amber);}
+  .checklist-item label{font-size:.92rem; color:var(--sage);}
+  @media (max-width:620px){.step-card{grid-template-columns:1fr; padding:28px;} .step-num{width:auto;}}
+</style>
+</head>
+<body class="canopy-bg">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"><img src="logo-icon.png" alt="The Treehouse Lounge"></span> Treehouse Lounge</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="first-visit.html" class="active">First Visit</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="learning.html">Learning Center</a></li>
+      <li><a href="concierge.html">AI Concierge</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="concierge.html" class="btn btn-ghost btn-sm">Ask a question</a>
+      <a href="index.html#memberships" class="btn btn-primary btn-sm">Get a Pass</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="section-tight">
+  <div class="wrap center-col">
+    <span class="eyebrow" style="justify-content:center;">First time here? Start here.</span>
+    <h1 class="display-2 mt-16" style="max-width:20ch;">Most people are nervous. You won't be by step three.</h1>
+    <p class="lede mt-16" style="max-width:54ch;">Here's exactly what happens from the parking lot to your first conversation on the couch — no surprises.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap wizard">
+    <div class="steps-rail" id="stepsRail">
+      <button data-step="0" class="active" aria-label="Step 1"></button>
+      <button data-step="1" aria-label="Step 2"></button>
+      <button data-step="2" aria-label="Step 3"></button>
+      <button data-step="3" aria-label="Step 4"></button>
+      <button data-step="4" aria-label="Step 5"></button>
+    </div>
+
+    <div class="step-panel active" data-panel="0">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div>
+          <span class="pill pill-amber">2 minutes</span>
+          <h2 class="display-3 mt-16">Arrive and check in</h2>
+          <p class="lede mt-16" style="font-size:1rem;">Pull into Summers of the River Sports Complex in Nixa. Walk up to the front desk — someone will greet you right away. Bring a valid government ID; you must be 21 or older, no exceptions.</p>
+          <p class="muted mt-16" style="font-size:.88rem;">Tip: Friday and Saturday after 8pm get busy. If you want a quieter first visit, come between 2–5pm.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-panel" data-panel="1">
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div>
+          <span class="pill pill-amber">3 minutes</span>
+          <h2 class="display-3 mt-16">Sign the waiver</h2>
+          <p class="lede mt-16" style="font-size:1rem;">A quick safety waiver — standard for any consumption space. You can sign it on a tablet at the door, or fill it out online ahead of time so check-in takes thirty seconds.</p>
+          <a href="concierge.html" class="btn btn-ghost btn-sm mt-16">Ask the concierge what's in the waiver</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-panel" data-panel="2">
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div>
+          <span class="pill pill-leaf">BYOC</span>
+          <h2 class="display-3 mt-16">Bring your own cannabis</h2>
+          <p class="lede mt-16" style="font-size:1rem;">The Treehouse doesn't sell product — you bring whatever you're comfortable with. Don't have anything yet? Show up anyway. This community shares generously, and partner brands regularly drop off samples for members to try.</p>
+          <p class="muted mt-16" style="font-size:.88rem;">Need gear? Rent a bowl, gravity bong, or vaporizer (including a Volcano or Puffco Peak Pro) for $5–20/day — cleaned thoroughly between uses.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-panel" data-panel="3">
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div>
+          <span class="pill">Social</span>
+          <h2 class="display-3 mt-16">Meet the community</h2>
+          <p class="lede mt-16" style="font-size:1rem;">Sink into the leather couches in the living room area, or pull up to a table. Staff and regulars are quick to wave new faces over — most first-timers say they were talking with someone within ten minutes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-panel" data-panel="4">
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <div>
+          <span class="pill pill-amber">Stay as long as you like</span>
+          <h2 class="display-3 mt-16">Enjoy games, events, and the lounges</h2>
+          <p class="lede mt-16" style="font-size:1rem;">Switch, PS5, Oculus Quest, darts, pool, foosball, big-screen TVs — or just see what's on tonight's calendar: live music, workshops, art classes, yoga, bingo, open mic. Check <a href="index.html#tonight" style="color:var(--amber-soft); text-decoration:underline;">tonight's lineup</a> before you go.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-ghost" id="prevBtn" style="visibility:hidden;">← Back</button>
+      <button class="btn btn-primary" id="nextBtn">Next step →</button>
+    </div>
+  </div>
+</section>
+
+<div class="string-lights" aria-hidden="true"></div>
+
+<!-- ============ BRING CHECKLIST ============ -->
+<section>
+  <div class="wrap grid grid-2" style="gap:48px;">
+    <div data-reveal>
+      <span class="eyebrow">Before you go</span>
+      <h2 class="display-3 mt-16">What to bring checklist</h2>
+      <p class="muted mt-16" style="font-size:.9rem;">Check these off as you pack — your progress saves on this device.</p>
+      <div class="mt-24" id="checklist">
+        <div class="checklist-item"><input type="checkbox" id="c1"><label for="c1">Valid government ID (21+ required)</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c2"><label for="c2">Your own cannabis, if you have it</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c3"><label for="c3">$15 cash or card for a Day Pass</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c4"><label for="c4">A way to get home — plan ahead</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c5"><label for="c5">An open mind — most regulars started exactly where you are</label></div>
+      </div>
+    </div>
+    <div data-reveal>
+      <div class="card" style="background:linear-gradient(180deg,var(--surface-3),var(--surface-2)); border-color:rgba(240,169,78,.3);">
+        <span class="pill pill-amber">First visit perk</span>
+        <h3 class="display-3 mt-16" style="font-size:1.3rem;">Free rental, on us</h3>
+        <p class="muted mt-16" style="font-size:.9rem;">Mention this page at check-in and your first Day Pass includes a free rental from the rosin press bar.</p>
+        <a href="concierge.html" class="btn btn-ghost btn-sm mt-24">Still have questions? Ask the concierge</a>
+      </div>
+      <div class="card mt-24">
+        <span class="eyebrow">Right now</span>
+        <p class="mt-16" style="font-size:.9rem; color:var(--sage);"><span data-live-members style="color:var(--amber-soft); font-family:var(--f-mono); font-weight:700;">37</span> members are currently in the lounge.</p>
+        <a href="index.html#memberships" class="btn btn-primary btn-sm mt-16">Get your pass</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span data-year></span> The Treehouse Lounge. 21+ only. ID and waiver required at check-in.</span>
+      <a href="index.html">← Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <span class="meta">Ready when you are</span>
+  <a href="index.html#memberships" class="btn btn-primary btn-sm">Get a Pass</a>
+</div>
+
+<script src="main.js"></script>
+<script>
+(function(){
+  const panels = document.querySelectorAll('.step-panel');
+  const railBtns = document.querySelectorAll('#stepsRail button');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let current = 0;
+
+  function render(){
+    panels.forEach((p,i) => p.classList.toggle('active', i === current));
+    railBtns.forEach((b,i) => {
+      b.classList.toggle('active', i === current);
+      b.classList.toggle('done', i < current);
+    });
+    prevBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+    nextBtn.textContent = current === panels.length - 1 ? "I'm ready →" : 'Next step →';
+  }
+  railBtns.forEach(b => b.addEventListener('click', () => { current = parseInt(b.dataset.step,10); render(); }));
+  prevBtn.addEventListener('click', () => { if(current>0){current--; render();} });
+  nextBtn.addEventListener('click', () => {
+    if(current < panels.length - 1){ current++; render(); }
+    else { window.location.href = 'index.html#memberships'; }
+  });
+
+  // checklist persistence
+  document.querySelectorAll('#checklist input').forEach(box => {
+    const saved = localStorage.getItem('th_' + box.id);
+    if(saved === '1') box.checked = true;
+    box.addEventListener('change', () => localStorage.setItem('th_' + box.id, box.checked ? '1' : '0'));
+  });
+})();
+</script>
+</body>
+</html>

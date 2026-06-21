@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Wall — Meet the Treehouse Regulars | The Treehouse Lounge</title>
+<meta name="description" content="Photos, art, reviews, and stories from the Treehouse Lounge community. See what members are sharing — and add your own.">
+<link rel="canonical" href="https://treehousemo.com/community.html">
+<meta property="og:title" content="Community Wall — Meet the Treehouse Regulars | The Treehouse Lounge">
+<meta property="og:description" content="Photos, art, reviews, and stories from the Treehouse Lounge community. See what members are sharing — and add your own.">
+<meta property="og:image" content="https://treehousemo.com/logo-full.png">
+<meta property="og:url" content="https://treehousemo.com/community.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .filter-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:32px;}
+  .filter-row button{padding:9px 18px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line-strong); color:var(--sage); font-size:.85rem;}
+  .filter-row button.active{background:var(--amber-dim); border-color:var(--amber); color:var(--amber-soft);}
+  .wall-masonry{columns:3 280px; column-gap:20px;}
+  .wall-post{break-inside:avoid; margin-bottom:20px; background:var(--surface-2); border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+  .wall-post .media{aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:2.4rem;}
+  .wall-post .body{padding:18px;}
+  .wall-post .meta{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .avatar{width:30px; height:30px; border-radius:50%; background:linear-gradient(160deg,var(--pine),var(--surface-3)); display:flex; align-items:center; justify-content:center; font-size:.85rem;}
+  .wall-post .text{font-size:.88rem; color:var(--sage); line-height:1.5;}
+  .wall-post .stats{display:flex; gap:14px; margin-top:12px; font-size:.78rem; color:var(--sage-dim); font-family:var(--f-mono);}
+  .composer{background:var(--surface-2); border:1px solid var(--line-strong); border-radius:18px; padding:24px; margin-bottom:40px;}
+  .composer textarea{width:100%; background:var(--surface); border:1px solid var(--line-strong); border-radius:10px; padding:14px; color:var(--pale); font-family:var(--f-body); resize:vertical; min-height:70px;}
+  .composer-row{display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:12px; flex-wrap:wrap;}
+  .tag-pick{display:flex; gap:8px;}
+  .tag-pick button{padding:6px 12px; border-radius:999px; background:var(--surface-3); border:1px solid var(--line-strong); color:var(--sage); font-size:.76rem;}
+  .tag-pick button.sel{background:var(--amber-dim); border-color:var(--amber); color:var(--amber-soft);}
+  @media (max-width:780px){.wall-masonry{columns:1 280px;}}
+</style>
+</head>
+<body class="canopy-bg">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"><img src="logo-icon.png" alt="The Treehouse Lounge"></span> Treehouse Lounge</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="first-visit.html">First Visit</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="community.html" class="active">Community</a></li>
+      <li><a href="learning.html">Learning Center</a></li>
+      <li><a href="concierge.html">AI Concierge</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="first-visit.html" class="btn btn-ghost btn-sm">Plan my visit</a>
+      <a href="index.html#memberships" class="btn btn-primary btn-sm">Get a Pass</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="section-tight">
+  <div class="wrap center-col">
+    <span class="eyebrow" style="justify-content:center;">The Community Wall</span>
+    <h1 class="display-2 mt-16" style="max-width:20ch;">A tribe, not just a business.</h1>
+    <p class="lede mt-16" style="max-width:54ch;">Event photos, art made on the couches, honest reviews, and the stories of the people who keep coming back. Posted by members — for members.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap">
+
+    <div class="composer" data-reveal>
+      <span class="eyebrow">Share something</span>
+      <textarea id="postText" placeholder="What happened at the lounge this week?" class="mt-16"></textarea>
+      <div class="composer-row">
+        <div class="tag-pick" id="tagPick">
+          <button type="button" data-tag="Photo" class="sel">📷 Photo</button>
+          <button type="button" data-tag="Art">🎨 Art</button>
+          <button type="button" data-tag="Review">⭐ Review</button>
+          <button type="button" data-tag="Story">📖 Story</button>
+        </div>
+        <button class="btn btn-primary btn-sm" id="postBtn">Post to the wall</button>
+      </div>
+      <p class="muted mt-16" style="font-size:.76rem;">Posts here are stored on this device for the demo. A live deploy connects this composer to a shared backend so every member sees every post — earns +5 Leaves per post once that's wired up.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="Photo">Photos</button>
+      <button data-filter="Art">Art</button>
+      <button data-filter="Review">Reviews</button>
+      <button data-filter="Story">Stories</button>
+    </div>
+
+    <div class="wall-masonry" id="wall"></div>
+  </div>
+</section>
+
+<div class="string-lights" aria-hidden="true"></div>
+
+<!-- ============ MEMBER STORIES ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Meet the community</span>
+      <h2 class="display-2 mt-16">The real people behind the memberships.</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card" data-reveal><span class="pill">Veteran</span><h3 class="display-3 mt-16" style="font-size:1.05rem;">"Found a Friday routine that actually helps."</h3></div>
+      <div class="card" data-reveal><span class="pill">Artist</span><h3 class="display-3 mt-16" style="font-size:1.05rem;">"My pottery painting habit started on a Tuesday workshop."</h3></div>
+      <div class="card" data-reveal><span class="pill">Musician</span><h3 class="display-3 mt-16" style="font-size:1.05rem;">"Played my first open mic here, nerves and all."</h3></div>
+      <div class="card" data-reveal><span class="pill">Medical patient</span><h3 class="display-3 mt-16" style="font-size:1.05rem;">"First place I didn't have to explain myself."</h3></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span data-year></span> The Treehouse Lounge. 21+ only. ID and waiver required at check-in.</span>
+      <a href="index.html">← Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+(function(){
+  const SEED = [
+    {tag:'Photo', emoji:'🌅', name:'Jess R.', text:'Sunset hit different from the back patio tonight. This place glows after 6pm.', likes:24, comments:6},
+    {tag:'Art', emoji:'🎨', name:'Marcus T.', text:'Finished this during the painting workshop — first piece I\'ve made in years.', likes:41, comments:12},
+    {tag:'Review', emoji:'⭐', name:'Dana K.', text:'Came in nervous and alone, left with three new numbers in my phone. Staff made it easy.', likes:33, comments:5},
+    {tag:'Story', emoji:'📖', name:'AJ P.', text:'Six months sober from drinking, found a place where "what\'s your strain?" replaced "what are you drinking?" Grateful for this spot.', likes:58, comments:19},
+    {tag:'Photo', emoji:'🎸', name:'Lena W.', text:'Open mic night got loud. New favorite Sunday.', likes:19, comments:3},
+    {tag:'Review', emoji:'⭐', name:'Carlos M.', text:'Rosin press demo alone was worth the day pass. Staff actually know their stuff.', likes:27, comments:8},
+    {tag:'Story', emoji:'📖', name:'Priya S.', text:'Brought my mom for her first time at 58. She made three friends before I finished my joint.', likes:64, comments:21},
+    {tag:'Art', emoji:'🖌️', name:'Tyler B.', text:'Glassblowing demo from a local artist tonight — picked up tips I\'m still thinking about.', likes:22, comments:4},
+    {tag:'Photo', emoji:'🔥', name:'Sam G.', text:'Bonfire night, food trucks out back, somebody brought a guitar. Perfect Saturday.', likes:36, comments:9}
+  ];
+
+  let posts = JSON.parse(localStorage.getItem('th_wall_posts') || 'null') || SEED;
+  let activeFilter = 'all';
+  let activeTag = 'Photo';
+
+  function save(){ localStorage.setItem('th_wall_posts', JSON.stringify(posts)); }
+
+  function render(){
+    const wall = document.getElementById('wall');
+    const list = activeFilter === 'all' ? posts : posts.filter(p => p.tag === activeFilter);
+    wall.innerHTML = list.map(p => `
+      <div class="wall-post">
+        <div class="media" style="background:linear-gradient(160deg, var(--pine), var(--surface-3));">${p.emoji}</div>
+        <div class="body">
+          <div class="meta"><div class="avatar">${p.name.charAt(0)}</div><div><div style="font-weight:600; font-size:.85rem;">${p.name}</div><span class="pill" style="padding:2px 8px; font-size:.68rem;">${p.tag}</span></div></div>
+          <div class="text">${p.text}</div>
+          <div class="stats"><span>♥ ${p.likes}</span><span>💬 ${p.comments}</span></div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('filterRow').addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#filterRow button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    render();
+  });
+
+  document.getElementById('tagPick').addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#tagPick button').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    activeTag = btn.dataset.tag;
+  });
+
+  document.getElementById('postBtn').addEventListener('click', () => {
+    const text = document.getElementById('postText').value.trim();
+    if(!text) return;
+    const emojis = {Photo:'📷', Art:'🎨', Review:'⭐', Story:'📖'};
+    posts.unshift({ tag: activeTag, emoji: emojis[activeTag], name: 'You', text, likes:0, comments:0 });
+    save();
+    document.getElementById('postText').value = '';
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -114,7 +114,8 @@ function renderStringLights(container, bulbCount = 14){
   for(let i=0;i<bulbCount;i++){
     const x = (w/(bulbCount-1)) * i;
     const sag = Math.sin((i/(bulbCount-1)) * Math.PI) * 26;
-    bulbs += `<circle class="bulb" cx="${x}" cy="${22+sag}" r="4.2" fill="#f0a94e"/>`;
+    const color = i % 3 === 0 ? '#f014c4' : '#a9ef41';
+    bulbs += `<circle class="bulb" cx="${x}" cy="${22+sag}" r="4.2" fill="${color}"/>`;
   }
   let path = `M0,8 `;
   const segs = 24;
